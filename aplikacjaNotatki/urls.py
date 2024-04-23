@@ -6,4 +6,5 @@ app_name = 'aplikacjaNotatki'
 
 urlpatterns = [
     path('', views.NotesView.as_view(), name='post_list'),
+    path('<int:year>/<int:month>/<int:day>/', views.note_detail, name='post_detail'),
 ]
