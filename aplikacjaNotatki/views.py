@@ -11,6 +11,6 @@ class NotesView(ListView):
     template_name = "notes/note/list.html"
 
 
-def note_detail(request, year, month, day):
-    note = get_object_or_404(Note, year=year, month=month, day=day)
+def note_detail(request, id):
+    note = get_object_or_404(Note, id=id)
     return render(request, "notes/note/detail.html", {'note': note})

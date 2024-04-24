@@ -10,8 +10,9 @@
             {{ note.title }}
         </a></h3>
         <p class="date">
-            Written by {{ note.author }} at {{ note.publish }}
+            Written by {{ note.author }} at {{ note.created }}
         </p>
+        <p class="urgency">Urgency: {{ note.urgency }}</p>
         {{ note.body|truncatewords:30|linebreaks }}
     {% endfor %}
 
