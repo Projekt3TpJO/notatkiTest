@@ -5,9 +5,9 @@ from django.urls import reverse
 
 class Note(models.Model):
     URGENCY_CHOICES = (
-        ('low', 'Low'),
-        ('medium', 'Medium'),
-        ('high', 'High'),
+        ('1', 'High'),
+        ('2', 'Medium'),
+        ('3', 'Low'),
     )
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
@@ -15,13 +15,13 @@ class Note(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notes')
-    urgency = models.CharField(max_length=6, choices=URGENCY_CHOICES, default='low')
+    urgency = models.CharField(max_length=10, choices=URGENCY_CHOICES, default='3')
 
     def get_absolute_url(self):
         return reverse('aplikacjaNotatki:note_detail', args=[self.id])
 
     class Meta:
-        ordering = ('-urgency',)
+        ordering = ('urgency',)
 
     def __str__(self):
         return self.title

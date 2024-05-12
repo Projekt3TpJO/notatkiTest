@@ -7,4 +7,5 @@ app_name = 'aplikacjaNotatki'
 urlpatterns = [
     path('', views.NotesView.as_view(), name='post_list'),
     path('<int:id>/', views.note_detail, name='note_detail'),
+    path('add/', views.note_create, name='note_create'),
 ]

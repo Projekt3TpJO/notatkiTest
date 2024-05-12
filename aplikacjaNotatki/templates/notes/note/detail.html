@@ -3,9 +3,15 @@
 {% block title %} {{ note.title }} {% endblock %}
 
 {% block content %}
-    <h2>{{ note.title }}</h2>
-    <p class="date">
-        Written by {{ note.author }} at {{ note.created }}
-    </p>
+    <hr>
+    <div class="detail">
+        <h2>{{ note.title }}</h2>
+        <p class="description">
+            {{ note.description }}
+        </p>
+        <p class="date">
+            Written by {{ note.author }} at {{ note.created }}
+        </p>
+    </div>
     {{ note.body|linebreaks }}
 {% endblock %}

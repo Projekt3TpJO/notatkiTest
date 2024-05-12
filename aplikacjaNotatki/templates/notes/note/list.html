@@ -4,17 +4,30 @@
 
 {% block content %}
     <h2>My notes</h2>
-    {% for note in notes %}
-        <h3>
-        <a href="{{ note.get_absolute_url }}">
-            {{ note.title }}
-        </a></h3>
-        <p class="date">
-            Written by {{ note.author }} at {{ note.created }}
-        </p>
-        <p class="urgency">Urgency: {{ note.urgency }}</p>
-        {{ note.body|truncatewords:30|linebreaks }}
-    {% endfor %}
-
+    <main>
+        <div class="content">
+            {% for note in notes %}
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ note.title }}</h4>
+                        <h7 class="card-subtitle mb-2 text-muted">Written by {{ note.author }}
+                            at {{ note.created }}</h7>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Created: {{ note.created }}</li>
+                        <li class="list-group-item">Author: {{ note.author }}</li>
+                        <li class="list-group-item">Urgency: {{ note.urgency }}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="{{ note.get_absolute_url }}" class="card-link">Details</a>
+                    </div>
+                </div>
+                {{ note.body|truncatewords:30|linebreaks }}
+            {% endfor %}
+        {%  if notes.count == 0 %}
+            <p>No notes found</p>
+        {% endif %}
+        </div>
+    </main>
     {% include "notes/pagination.html" with page=page_obj %}
 {% endblock %}

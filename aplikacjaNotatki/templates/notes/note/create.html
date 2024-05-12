@@ -1,0 +1,31 @@
+{% extends "notes/base.html" %}
+
+{% block title %} Create note {% endblock %}
+
+{% block content %}
+    <h2>Create note</h2>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Title:</td>
+                <td>{{ note_form.title }}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{ note_form.description }}</td>
+            </tr>
+            <tr>
+                <td>Author:</td>
+                <td>{{ note_form.author }}</td>
+            </tr>
+            <tr>
+                <td>Urgency:</td>
+                <td>{{ note_form.urgency }}</td>
+            </tr>
+        </table>
+        {% csrf_token %}
+        <br>
+        <input type="submit" value="Create note" class="btn btn-primary">
+    </form>
+    {{ note.body|linebreaks }}
+{% endblock %}
