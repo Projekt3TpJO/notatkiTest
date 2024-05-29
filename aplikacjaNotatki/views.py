@@ -25,3 +25,15 @@ def note_create(request):
             note.save()
     note_form = NoteForm()
     return render(request, "notes/note/create.html", {'note_form': note_form})
+
+
+def note_edit(request, id):
+    note = get_object_or_404(Note, id=id)
+    if request.method == "POST":
+        note_form = NoteForm(data=request.POST, instance=note)
+        if note_form.is_valid():
+            note_form.save(commit=False)
+            note.save()
+
+    note_form = NoteForm(instance=note)
+    return render(request, "notes/note/edit.html", {'note_form': note_form})

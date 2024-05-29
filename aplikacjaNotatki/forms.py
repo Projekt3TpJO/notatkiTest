@@ -8,9 +8,8 @@ class NoteForm(forms.ModelForm):
         model = Note
         fields = '__all__'
         URGENCY_CHOICES = (
-            ('3', 'Low'),
-            ('2', 'Medium'),
-            ('1', 'High'),
+            ('High', 'High'),
+            ('Low', 'Low'),
         )
         title = forms.CharField(max_length=100)
         description = forms.Textarea

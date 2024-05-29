@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('notes/', include('aplikacjaNotatki.urls', namespace='notes')),
     path('notes/add/', include('aplikacjaNotatki.urls', namespace='notes')),
+    path('notes/edit/', include('aplikacjaNotatki.urls', namespace='notes')),
 ]

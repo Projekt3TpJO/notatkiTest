@@ -5,9 +5,8 @@ from django.urls import reverse
 
 class Note(models.Model):
     URGENCY_CHOICES = (
-        ('1', 'High'),
-        ('2', 'Medium'),
-        ('3', 'Low'),
+        ('High', 'High'),
+        ('Low', 'Low'),
     )
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)

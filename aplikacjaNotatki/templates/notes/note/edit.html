@@ -3,7 +3,7 @@
 {% block title %} Edit note {% endblock %}
 
 {% block content %}
-    <h2>Create note</h2>
+    <h2>Edit note</h2>
     <form method="post">
         <table>
             <tr>
@@ -15,17 +15,17 @@
                 <td>{{ note_form.description }}</td>
             </tr>
             <tr>
-                <td>Author:</td>
-                <td>{{ note_form.author }}</td>
-            </tr>
-            <tr>
                 <td>Urgency:</td>
                 <td>{{ note_form.urgency }}</td>
+            </tr>
+            <tr>
+                <td>Author:</td>
+                <td>{{ note_form.author }}</td>
             </tr>
         </table>
         {% csrf_token %}
         <br>
-        <input type="submit" value="Create note" class="btn btn-primary">
+        <input type="submit" value="Edit note" class="btn btn-primary">
     </form>
     {{ note.body|linebreaks }}
 {% endblock %}

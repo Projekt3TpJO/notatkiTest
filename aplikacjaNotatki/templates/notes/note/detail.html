@@ -12,6 +12,9 @@
         <p class="date">
             Written by {{ note.author }} at {{ note.created }}
         </p>
+        <p>
+            <a href="/notes/edit/{{ note.id }}/">Edit note</a>
+        </p>
     </div>
     {{ note.body|linebreaks }}
 {% endblock %}
