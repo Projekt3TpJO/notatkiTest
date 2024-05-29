@@ -3,14 +3,17 @@
 {% block title %} {{ note.title }} {% endblock %}
 
 {% block content %}
-    <hr>
     <div class="detail">
-        <h2>{{ note.title }}</h2>
+        <h2 class="title">{{ note.title }}</h2>
         <p class="description">
             {{ note.description }}
         </p>
         <p class="date">
-            Written by {{ note.author }} at {{ note.created }}
+            Written by <b>{{ note.author }}</b> on {{ note.created }} <br>
+            Last update on {{ note.updated }}
+        </p>
+        <p class="urgency">
+            Urgency: <b>{{ note.urgency }}</b>
         </p>
         <p>
             <a href="/notes/edit/{{ note.id }}/">Edit note</a>

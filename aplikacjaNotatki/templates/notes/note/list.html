@@ -15,13 +15,12 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Created: {{ note.created }}</li>
                         <li class="list-group-item">Author: {{ note.author }}</li>
-                        <li class="list-group-item">Urgency: {{ note.urgency }}</li>
+                        <li class="list-group-item" style="{% if note.urgency == "High" %} background-color: indianred; color: white; {% else %} background-color: forestgreen {% endif %} ">Urgency: {{ note.urgency }}</li>
                     </ul>
                     <div class="card-body">
                         <a href="{{ note.get_absolute_url }}" class="card-link">Details</a>
                     </div>
                 </div>
-                {{ note.body|truncatewords:30|linebreaks }}
             {% endfor %}
         {%  if notes.count == 0 %}
             <p>No notes found</p>

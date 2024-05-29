@@ -20,7 +20,7 @@ class Note(models.Model):
         return reverse('aplikacjaNotatki:note_detail', args=[self.id])
 
     class Meta:
-        ordering = ('urgency',)
+        ordering = ('urgency', 'created',)
 
     def __str__(self):
         return self.title
